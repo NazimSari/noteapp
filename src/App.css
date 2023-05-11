@@ -1,38 +1,138 @@
 .App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  height: 100vh;
+  width: 100%;
+  align-items: center;
+}
+.header {
+  text-align: center;
+  background-color: #7a7a7a;
+  height: 75vh;
+  width: 75%;
+  position: relative;
+}
+h1 {
+  margin-top: 50px;
+  color: aliceblue;
+  font-size: 35px;
+}
+.search {
+  width: 350px;
+  height: 35px;
+  margin: 15px;
+  padding: 10px;
+  border-radius: 35px;
+  border: none;
+}
+.textarea {
+  height: 25vh;
+  width: 65%;
+  padding: 10px;
+  resize: none;
+  outline: none;
 }
 
-.App-link {
-  color: #61dafb;
+.toggle {
+  width: 30px;
+  height: 30px;
+  margin: 5px;
+  appearance: none;
+  border-radius: 50%;
+  border: none;
+}
+.toggle.blue {
+  background-color: rgb(79, 139, 234);
+}
+.toggle.green {
+  background-color: rgb(79, 234, 79);
+}
+.toggle.purple {
+  background-color: rgb(234, 79, 213);
+}
+.toggle.red {
+  background-color: rgb(234, 79, 118);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.toggle.yellow {
+  background-color: rgb(234, 234, 79);
+}
+
+.toggle::before {
+  content: "";
+  display: block;
+  width: 60px;
+  height: 34px;
+  margin-top: -2px;
+  margin-left: -8px;
+  border-radius: 50%;
+  background-image: url("data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%2240%22%20height%3D%2240%22%20viewBox%3D%22-10%20-18%20100%20135%22%3E%3Ccircle%20cx%3D%2250%22%20cy%3D%2250%22%20r%3D%2250%22%20fill%3D%22none%22%20stroke%3D%22%23bddad5%22%20stroke-width%3D%223%22/%3E%3Cpath%20fill%3D%22%235dc2af%22%20d%3D%22M72%2025L42%2071%2027%2056l-4%204%2020%2020%2034-52z%22/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: center left;
+  opacity: 0; /* başlangıçta görünmez */
+}
+.toggle:checked::before {
+  opacity: 1; /* seçildiğinde görünür */
+}
+.ekle {
+  position: absolute;
+  margin-top: -55px;
+  margin-left: 190px;
+  outline: none;
+  cursor: pointer;
+  font-size: 16px;
+  line-height: 20px;
+  font-weight: 600;
+  border-radius: 8px;
+  padding: 14px 24px;
+  border: none;
+  transition: box-shadow 0.2s ease 0s, -ms-transform 0.1s ease 0s,
+    -webkit-transform 0.1s ease 0s, transform 0.1s ease 0s;
+  background: linear-gradient(
+    to right,
+    rgb(230, 30, 77) 0%,
+    rgb(227, 28, 95) 50%,
+    rgb(215, 4, 102) 100%
+  );
+  color: #fff;
+}
+.inline-list {
+  display: flex;
+  justify-content: space-between;
+}
+.inline-list li {
+  list-style: none;
+  height: 40px;
+  width: 200px;
+  margin-top: 25px;
+  margin-left: 10px;
+  margin-right: 10px;
+  padding: 5px;
+  background: white;
+  display: flex; /* içerik dikeyde de ortalanacak */
+  justify-content: space-between;
+  align-items: center;
+  word-wrap: break-word;
+  word-break: break-all;
+  max-width: 100%;
+}
+.inline-list li .destroy {
+  display: none;
+  margin-top: 10px;
+  font-size: 15px;
+  color: #cc9a9a;
+  margin-bottom: 11px;
+  background-color: black;
+  transition: color 0.2s ease-out;
+}
+.inline-list li .destroy:hover {
+  color: #af5b5e;
+}
+
+.inline-list li .destroy:after {
+  content: "x";
+}
+
+.inline-list li:hover .destroy {
+  display: block;
 }
